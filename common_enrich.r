@@ -134,7 +134,7 @@ create_final_plot <- function(snpid_focus, known_loci, gsea_kegg_results) {
   if (nrow(case_result) > 0) {
     p1 <- ggplot(case_result, showCategory = 10, aes(NES, fct_reorder(Description, NES))) + 
       geom_segment(aes(xend=0, yend = Description)) +
-      geom_point(aes(color=p.adjust, size = GeneRatio)) +
+      geom_point(aes(color=p.adjust, size = Count)) +
       scale_color_gradientn(colours=c("#f7ca64", "#46bac2", "#7e62a3"), trans = "log10", guide=guide_colorbar(reverse=TRUE, order=1)) +
       scale_size_continuous(range=c(3, 10)) +
       theme_dose(12) +
@@ -161,7 +161,7 @@ create_final_plot <- function(snpid_focus, known_loci, gsea_kegg_results) {
   if (nrow(control_result) > 0) {
     p2 <- ggplot(control_result, showCategory = 10, aes(NES, fct_reorder(Description, NES))) + 
       geom_segment(aes(xend=0, yend = Description)) +
-      geom_point(aes(color=p.adjust, size = GeneRatio)) +
+      geom_point(aes(color=p.adjust, size = Count)) +
       scale_color_gradientn(colours=c("#f7ca64", "#46bac2", "#7e62a3"), trans = "log10", guide=guide_colorbar(reverse=TRUE, order=1)) +
       scale_size_continuous(range=c(3, 10)) +
       theme_dose(12) +
