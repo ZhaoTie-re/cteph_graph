@@ -227,34 +227,35 @@ for (snpid in snpids) {
 
 # %%
 
-get_common_gsea_results <- function(case_result, control_result) {
-  # get common IDs
-  case_ids <- case_result@result$ID
-  control_ids <- control_result@result$ID
-  common_ids <- intersect(case_ids, control_ids)
-  # subset results
-  case_result_sub <- case_result
-  control_result_sub <- control_result
+# get_common_gsea_results <- function(case_result, control_result) {
   
-  case_result_sub@result <- case_result@result[case_result@result$ID %in% common_ids, ]
-  control_result_sub@result <- control_result@result[control_result@result$ID %in% common_ids, ]
+#   # get common IDs
+#   case_ids <- case_result@result$ID
+#   control_ids <- control_result@result$ID
+#   common_ids <- intersect(case_ids, control_ids)
+#   # subset results
+#   case_result_sub <- case_result
+#   control_result_sub <- control_result
   
-  return(list(case_result_sub = case_result_sub, control_result_sub = control_result_sub))
-}
+#   case_result_sub@result <- case_result@result[case_result@result$ID %in% common_ids, ]
+#   control_result_sub@result <- control_result@result[control_result@result$ID %in% common_ids, ]
+  
+#   return(list(case_result_sub = case_result_sub, control_result_sub = control_result_sub))
+# }
 
 
-common_results <- get_common_gsea_results(case_result, control_result)
-case_result_sub <- common_results$case_result_sub
-control_result_sub <- common_results$control_result_sub
+# common_results <- get_common_gsea_results(case_result, control_result)
+# case_result_sub <- common_results$case_result_sub
+# control_result_sub <- common_results$control_result_sub
 
-cat("Number of entries in case_result_sub:", nrow(case_result_sub@result), "\n")
-cat("Number of entries in control_result_sub:", nrow(control_result_sub@result), "\n")
+# cat("Number of entries in case_result_sub:", nrow(case_result_sub@result), "\n")
+# cat("Number of entries in control_result_sub:", nrow(control_result_sub@result), "\n")
 
 
-# %%
-ids <- case_result_sub@result$ID
+# # %%
+# ids <- case_result_sub@result$ID
 
-# Reorder control_result_sub to match the order of case_result_sub
+# # Reorder control_result_sub to match the order of case_result_sub
 
-ridgeplot(case_result_sub, core_enrichment = TRUE)
-ridgeplot(control_result_sub, core_enrichment = TRUE)
+# ridgeplot(case_result_sub, core_enrichment = TRUE)
+# ridgeplot(control_result_sub, core_enrichment = TRUE)
